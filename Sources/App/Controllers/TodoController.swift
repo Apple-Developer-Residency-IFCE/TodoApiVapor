@@ -3,6 +3,7 @@ import Vapor
 struct TaskController: RouteCollection {
     func boot(routes: any RoutesBuilder) throws {
         let tasks = routes.grouped("tasks")
+        
         tasks.get(use: index)
         tasks.post(use: create)
         tasks.put(":id", use: update)
@@ -27,7 +28,7 @@ struct TaskController: RouteCollection {
             .unwrap(or: Abort(.notFound))
             .flatMap { task in
                 task.title = updatedTask.title
-                task.isCompleted = updatedTask.isCompleted
+//                task.isCompleted = updatedTask.isCompleted
                 return task.save(on: req.db).map { task }
             }
     }

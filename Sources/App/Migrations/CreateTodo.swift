@@ -5,7 +5,7 @@ struct CreateTask: Migration {
         database.schema("tasks")
             .id()
             .field("title", .string, .required)
-            .field("is_completed", .bool, .required)
+//            .field("is_completed", .bool, .required) 
             .create()
     }
 

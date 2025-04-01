@@ -11,14 +11,10 @@ final class Task: Model, Content, @unchecked Sendable{
     @Field(key: "title")
     var title: String
     
-    @Field(key: "is_completed")
-    var isCompleted: Bool
-    
     init() {}
     
-    init(id: UUID? = nil, title: String, isCompleted: Bool = false) {
+    init(id: UUID? = nil, title: String) {
         self.id = id
         self.title = title
-        self.isCompleted = isCompleted
     }
 }
